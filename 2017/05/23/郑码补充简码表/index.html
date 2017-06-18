@@ -13,11 +13,11 @@
 
     <title>
         
-          重码的绝对几率？ - Aerobase | A Blog For Gibberish
+          郑码补丁——补充码表 - Aerobase | A Blog For Gibberish
         
     </title>
 
-    <link rel="canonical" href="https://github.com/bisolate/2017/05/22/重码的绝对几率？/">
+    <link rel="canonical" href="https://github.com/bisolate/2017/05/23/郑码补充简码表/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -165,12 +165,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#IME" title="IME">IME</a>
+                        
+                          <a class="tag" href="/tags/#输入法" title="输入法">输入法</a>
+                        
                     </div>
-                    <h1>重码的绝对几率？</h1>
+                    <h1>郑码补丁——补充码表</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Benjamin Benjamin on
-                        May 22, 2017
+                        May 23, 2017
                     </span>
                 </div>
             </div>
@@ -189,19 +193,15 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>徐码作者徐国银在他的帮助文档里特地写了一小节《重码的绝对几率》，其中提到一个所谓的“空间占用理论”，他是这么说的：</p>
-<blockquote>
-<p>最为常见的是以26个字母键、码位数为4的输入法…其编码空间总量为：456976位（26的4次方），而编码对象是6763个国标汉字（不加入词组），在这种条件下，所编出的输入法，其编码空间占用的情况是：456976÷6763=67.57，也就是：6763个字占用了约六十八分之一的编码空间。此时，每输入1个汉字，其重码的发生几率为：67.57分之1（456976除以(6763-1)=67.58），或者说每输入67.58个汉字后，就会产生一对重码，这样累计，输完6763个汉字，会产生6763乘以1/67.58=100.1对重码。从这个原理上来说，以26个字母键、码位数为4编码的输入法，其重码发生的几率所产生的重码为100对。</p>
-</blockquote>
-<p>这个理论可能不是徐的发明，我在别处也见过，而且不止一次。奇怪的是居然有人相信这个理论：近46万的编码空间，居然容不下区区6763个汉字，<strong>“至少”</strong>产生100对重码？</p>
-<p>其实，这个理论搞错了一个概念：<strong>“重码”</strong>。</p>
-<p>我们说的重码是什么意思？以拼音输入法为例，当我输入“a”，至少会出现三个候选：啊、阿、锕。这就是我们理解的重码：同一个编码对应多个候选。一对多，就会有选字的问题。这也是拼音输入法不便的地方。如果能做到“一个编码只对应一个候选”，一一对应，就不存在选字的问题，这是许多形码努力的目标。据我所知，目前还没有形码做到“无重码”。但是，这是因为存在“重码的绝对几率”吗？当然不是。6763个汉字，只要有6763个互不相同的编码与之一一对应，就可以做到<strong>无重码</strong>。别说四码方案，就是三码都够了。</p>
-<p>“占用理论”所说的<strong>重码</strong>，其实是“多个编码对应同一个候选”，比如郑码里，打“m”可以出“我”字，打“mdhm”也可以出“我”字。一个是简码，一个是全码。有些字还有容错码。但这些都不是问题。虽说是“多对一”，但多种编码中的任意一个都可以得到唯一、确定的输入结果，这有什么问题呢？</p>
-<p>打个比方。中国的手机号码是11位，应该是全世界最多的了吧，因为我们人多。11位数字，理论上能编出一千亿个不同号码，足够十几亿人使用。岂止够，根本绰绰有余。好多人都不止一个号，恨不得手机能四卡四待。有问题吗？没有。如果一个人有四个号码，ABCD，意思是，打A号码能打到他，打B号码也能找到他，打C、D都能找到他。这不是“重号”。虽然他有四个号码，但任意一个都能找到他（他接不接是另一回事了），一点问题没有。</p>
-<p>有问题的是这样的情形：几个人<strong>共用</strong>同一个号码。不是你自己家人共用哦，是素不相识的张三和李四共用。也就是说，如果你打张三的电话，是不能直接找到张三的哦，得有个接线小姐，告诉你“找张三先生，请按1；找李四先生，请按2”。不然，你就只能碰运气。那不是全乱套了吗？</p>
-<p>这种乱套，出现在电话号码上是灾难，但在拼音输入法上却是常态。你打“he”，那你是想说“何”，还是“河”，还是“喝”，还是“褐”？1234选一选吧。打字如此，打词也一样，谁叫汉语也就那么几个音节呢？然而拿起来就用啊，简单，而且智能化后，聊天也是绰绰有余了。</p>
-<p>不想老选字，那就选形码咯。但形码也没做到“完全无重码”，是因为形码一般做的都是有理码，要有规则；如果是无理码，其实早做到了，区位码、unicode都是，但是谁又能记住无理码呢？Unicode 倒是会给同一个字的不同字形分配不同的编码，比如“兑”和“兌”，你看起来可能是一样，但是 unicode 认为它们不同。简体的“说”和繁体的“說”，意思一样，但也不会是一样的编码。这些都是同一个字对应多个编码，也都没有问题。</p>
-<p>至于是不是存在一套规则，按它编码，不但6763汉字无重码，而且十几万汉字的全字集都无重码，那我不知道。可以肯定的是，空间肯定是够，在我的码表里，除了单字，还有一堆长短不一的词组，目前只有三十几万行，只用了四码空间的三分之二。有些编码上挤了十几个字，有些编码根本还空着，你们匀一匀多好啊！</p>
+                <p>一个不太成熟的郑码字词不一的不充分解决方案：</p>
+<p>因为郑码词的编码中，每个字最多取到“前2个字根的区码”，所以，只要在字的编码中，前2码也是取“前2个字根的区码”，就可以解决这个问题。</p>
+<p>但是，如果要在全字集贯彻这个原则，工作量有点大，所以我用了个折中的办法，只选了3500常用字，按此原则补充编码。实际上，并不是所以字都需要补：首根本来就是第一主根的，都会取到“前2个字根的区码”；另外简码一般也是直接取前3区码。</p>
+<p>最终的结果就是下面这四百多个字。编码的规则是“直接取前4区码”；不够4码的补末根的位码；末码无位码的补首根的位码；不够3码的补末根位码+首根位码。</p>
+<p>因为是一个个核对，中间可能有些未必完全遵循以上规则，主要是在末根有位码的情况下补了首根的位码。但都保证了先取“前2个字根的区码”。</p>
+<p>实际上，很多新增的编码在原码表里并没有定义，或是定义在生僻字词上（好多词根本没听过……），所以基本上新增编码并不影响原来的使用习惯。而新增这部分编码的意义在于，在常用字的范围内，可以直接按最简单的前4位码的方式进行输入而不会因为打空而需要重新来过。当然了，用这种懒方法，需要选字的情况可能会稍微多一点点，但基本都会在5个选项以内。其实这也说明了，郑码用“首根全取”和“1+2+末2+末”的取码是有它的道理的。如果它像徐码那样，把起到区分作用的位码放到后面，就可以避免字词规则不一的问题。但是，郑老设计编码的时候，似乎还考虑到文化内涵，他希望同一部首的字，可以因为“首根全取”而被编排到一起，所以，倒未必是郑老没考虑过。</p>
+<p>另外，用郑码小拇指疼的问题，应该是因为z键用得多导致。徐码似乎好一点点，但是也有限，从码表里z键的使用频率看，徐码的z键虽然用得稍微少一点，但也是很常用的键。从字根安排上也可以看出，徐码的z键上有“氵讠辶门”这些常见部首，使用频率也不会低到哪儿去。</p>
+<hr>
+<p>䂒    mbja<br>专    bzs<br>举    vaob<br>乒    pmd<br>乓    psda<br>乖    mtrr<br>乱    mzi<br>乾    ekem<br>亏    bzd<br>云    bzsd<br>井    bndd<br>产    smu<br>亲    sfu<br>今    osxw<br>仓    oyyd<br>停    nsjw<br>党    kwjr<br>关    ugda<br>兵    pod<br>具    loc<br>冀    trke<br>冤    wrjs<br>冯    txd<br>凑    tcag<br>凛    tsjj<br>凤    qxsd<br>凳    xaju<br>击    bzii<br>刃    ysd<br>则    lkdo<br>刚    lkdo<br>刚    lkdd<br>初    wydt<br>刨    rkdy<br>刮    mkdi<br>剑    obvk<br>剑    oava<br>剖    sjkd<br>剪    uqky<br>劈    xjsy<br>励    gayy<br>勒    eyme<br>勺    rsy<br>协    eyod<br>卑    ned<br>南    eldd<br>占    ijd<br>卿    rmxy<br>厨    gaju<br>双    xxss<br>叠    xxxw<br>古    ejd<br>句    rjy<br>召    yjd<br>台    zjs<br>右    gjd<br>名    rjs<br>向    njl<br>吝    sjo<br>否    gji<br>告    mjb<br>命    oajy<br>哦    jmdh<br>唇    gjh<br>唐    txjg<br>嘉    bjuy<br>回    jjd<br>困    jfd<br>囱    nrsj<br>圃    jfbd<br>圣    xbs<br>坚    kxbd<br>坯    bgia<br>垄    gbm<br>垦    xbo<br>基    ebc<br>塔    beoa<br>塞    weob<br>墅    kbxx<br>墩    bsjy<br>壁    xjsb<br>壕    bsjw<br>壤    bsjj<br>壮    tbi<br>夯    gymd<br>夺    gdsd<br>奶    zymm<br>妈    zxm<br>妙    zkmm<br>妥    pzmv<br>妨    zsym<br>姆    zzym<br>委    mzmf<br>娄    uzmf<br>娓    zxmh<br>娩    zrjr<br>婉    zwry<br>婚    zrkm<br>嬉    zbju<br>孔    yza<br>孕    yyam<br>它    wrrd<br>宇    wadd<br>守    wdsd<br>安    wzmd<br>宋    wfd<br>官    wyd<br>宛    wryy<br>宣    wbkd<br>宦    whd<br>宪    wmrd<br>宵    wkqd<br>寂    wikx<br>寇    wbri<br>寒    weot<br>寓    wklz<br>寝    wtxw<br>寞    wekg<br>寥    wyyo<br>寨    weof<br>导    yds<br>射    ndsc<br>少    kmo<br>尘    kbo<br>尺    xsm<br>屁    xrrm<br>岗    lldl<br>岩    lgl<br>峦    sllk<br>峭    lkql<br>崎    lgaj<br>崔    lnil<br>巧    bazi<br>巷    eoyy<br>帖    liji<br>帝    swll<br>幔    lklx<br>幢    lskb<br>庄    tbg<br>庆    tgdg<br>庇    trrg<br>床    tfg<br>库    theg<br>庙    tkig<br>府    tnds<br>庸    txld<br>廓    tsjy<br>异    yeyb<br>弊    klme<br>引    yiz<br>弗    yndz<br>弛    yyiz<br>弟    uyim<br>弯    syzk<br>彩    ppd<br>彰    skep<br>彼    oxii<br>径    oxbi<br>微    olaq<br>徽    olaz<br>必    wmz<br>思    kwzi<br>怠    zjwz<br>恩    jwzd<br>悲    kwzc<br>惩    oaiw<br>惫    rkwz<br>感    hajw<br>愿    gnkw<br>慰    xbdw<br>憋    klmw<br>戒    hem<br>戳    yynh<br>拿    oajm<br>掌    kwjm<br>摩    tffm<br>擎    erjm<br>攻    bmoi<br>教    bymo<br>敞    klmo<br>敲    sjli<br>斩    hpde<br>斯    epdc<br>施    smyy<br>旗    smec<br>旨    rkr<br>旬    rky<br>旭    qky<br>昏    rkh<br>智    mjka<br>朵    qfd<br>杀    ofs<br>来    bkvd<br>某    efb<br>栗    ffj<br>桑    xxxf<br>棠    kwjf<br>欣    prod<br>毯    muuo<br>氛    moyd<br>氯    mxkv<br>汞    bkvi<br>灯    uaio<br>灶    ubo<br>炉    uwmo<br>炬    uhxo<br>炸    umio<br>烂    uubo<br>烙    urjo<br>烛    uio<br>焊    ukae<br>焙    usjo<br>焦    nuoi<br>煌    unco<br>煎    uqku<br>熏    mlbu<br>熟    sjyq<br>燎    uguk<br>牲    mmcb<br>牺    mfjb<br>犁    mkmb<br>犬    gsd<br>狂    qcm<br>狌    qmcm<br>狐    qpsm<br>狗    qrjm<br>狡    qsoo<br>独    qim<br>狮    qkal<br>猃    qobv<br>猅    qkcm<br>猎    qekm<br>猩    qkmc<br>猫    qeki<br>猿    qbjr<br>璧    xjsc<br>甜    mebi<br>甩    lzd<br>甸    rkiy<br>畦    kbbi<br>番    pkif<br>皇    nck<br>皇    ncak<br>盒    oajl<br>盖    ulka<br>盗    trlk<br>盲    slh<br>眉    xlm<br>眷    ulb<br>矛    xxim<br>知    mja<br>矫    mmgn<br>礼    wzs<br>社    wbs<br>祈    wpds<br>祖    wlcs<br>神    wkis<br>神    wkic<br>祠    wyaj<br>福    wajk<br>私    mzsf<br>秆    maef<br>秉    mxbf<br>秕    mrrf<br>秩    mmof<br>秸    mbjf<br>秽    mlrs<br>穷    wymo<br>窄    wmid<br>窑    wmez<br>窒    whbo<br>窖    wmjo<br>窘    wxjo<br>窜    wjji<br>窝    wjlo<br>竞    sjrd<br>竣    sxor<br>竭    skry<br>第    myim<br>粪    ueof<br>粹    usoo<br>精    ucqf<br>糕    uuuf<br>糙    uwmj<br>糜    tffu<br>糟    uekk<br>糠    utxk<br>糯    ufgl<br>系    mzko<br>紊    szo<br>索    ewzd<br>累    kzzk<br>繁    mzmz<br>缸    mezb<br>罐    meze<br>网    loos<br>罕    woae<br>罗    lrsk<br>署    lbmk<br>羔    uuoc<br>翎    owyy<br>翔    uyyt<br>翰    ekeo<br>聋    gcem<br>肄    rmxb<br>肓    sqh<br>肖    kqo<br>胃    kqi<br>脸    qoav<br>膏    sjwj<br>臂    xjsq<br>臭    ngsl<br>舒    omxi<br>舶    pnky<br>船    pqjy<br>虱    ymid<br>蚀    oix<br>蛮    sik<br>蠢    ciio<br>衍    ovi<br>衔    opi<br>衩    wxst<br>衫    wpdt<br>衬    wdst<br>袍    wryt<br>袖    wkit<br>裂    arks<br>裙    wxjt<br>裳    kwjs<br>裸    wkft<br>褥    wgds<br>觅    plrv<br>誉    vaos<br>誊    usb<br>譬    xjss<br>豁    wcjo<br>豌    ajuw<br>豫    xxir<br>豹    prsq<br>豺    pdmq<br>贡    bloi<br>贬    lmwo<br>贯    zloy<br>贸    rsyl<br>赂    lrjo<br>赊    lobk<br>赌    lbmo<br>赏    kwjl<br>赘    cyml<br>赫    bnob<br>趴    joi<br>趼    jaei<br>跑    jryi<br>路    jrj<br>踏    jkki<br>踢    jkro<br>蹲    jufd<br>躁    jjjf<br>轧    hze<br>辐    hajk<br>辱    gdsh<br>逸    wrjr<br>邓    xys<br>邪    hyi<br>邮    kyia<br>酌    frsd<br>酗    fozd<br>酝    fbzs<br>酪    frjd<br>酱    trfd<br>酷    fmjd<br>酸    fxor<br>醇    fsjy<br>醒    fkmc<br>闯    txl<br>闰    tcl<br>闲    tfl<br>闽    til<br>阁    trjl<br>阿    yaji<br>隶    xkvb<br>难    xni<br>集    nfi<br>雕    lbjn<br>雹    fryv<br>雾    frym<br>霍    fniv<br>霎    fszm<br>霞    fxbx<br>霹    fxjs<br>靖    scqu<br>鞍    ewzm<br>鞠    eruf<br>韧    byys<br>韩    ekey<br>韭    kac<br>音    sku<br>韵    skrt<br>额    wrjg<br>飒    sqou<br>饺    osoo<br>馒    oklx<br>香    mkf<br>魄    nnj<br>魔    tffn<br>鳖    klmr<br>鸽    oajr<br>鹊    ekrz<br>鹦    llzr<br>麦    crsi<br>黎    mrok<br>黔    lbuo<br>默    lbug<br>鼓    bjue<br>鼻    nkan</p>
 
 
                 <hr>
@@ -210,13 +210,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/05/23/郑码补充简码表/" data-toggle="tooltip" data-placement="top" title="郑码补丁——补充码表">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/05/20/郑码二简二重/" data-toggle="tooltip" data-placement="top" title="郑码二简二重">Next Post &rarr;</a>
+                            <a href="/2017/05/22/重码的绝对几率？/" data-toggle="tooltip" data-placement="top" title="重码的绝对几率？">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -249,6 +245,10 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#IME" title="IME">IME</a>
+                        
+                          <a class="tag" href="/tags/#输入法" title="输入法">输入法</a>
+                        
                     </div>
                 </section>
                 
@@ -268,8 +268,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "Benjamin";
-    var disqus_identifier = "https://github.com/bisolate/2017/05/22/重码的绝对几率？/";
-    var disqus_url = "https://github.com/bisolate/2017/05/22/重码的绝对几率？/";
+    var disqus_identifier = "https://github.com/bisolate/2017/05/23/郑码补充简码表/";
+    var disqus_url = "https://github.com/bisolate/2017/05/23/郑码补充简码表/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
