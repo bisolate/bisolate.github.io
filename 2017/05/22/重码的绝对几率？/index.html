@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://github.com/bisolate/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>重码的绝对几率？</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Benjamin Benjamin on
+                        May 22, 2017
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>徐码作者徐国银在他的帮助文档里特地写了一小节《重码的绝对几率》，其中提到一个所谓的“空间占用理论”，他是这么说的：</p>
+<blockquote>
+<p>最为常见的是以26个字母键、码位数为4的输入法…其编码空间总量为：456976位（26的4次方），而编码对象是6763个国标汉字（不加入词组），在这种条件下，所编出的输入法，其编码空间占用的情况是：456976÷6763=67.57，也就是：6763个字占用了约六十八分之一的编码空间。此时，每输入1个汉字，其重码的发生几率为：67.57分之1（456976除以(6763-1)=67.58），或者说每输入67.58个汉字后，就会产生一对重码，这样累计，输完6763个汉字，会产生6763乘以1/67.58=100.1对重码。从这个原理上来说，以26个字母键、码位数为4编码的输入法，其重码发生的几率所产生的重码为100对。</p>
+</blockquote>
+<p>这个理论可能不是徐的发明，我在别处也见过，而且不止一次。奇怪的是居然有人相信这个理论：近46万的编码空间，居然容不下区区6763个汉字，<strong>“至少”</strong>产生100对重码？</p>
+<p>其实，这个理论搞错了一个概念：<strong>“重码”</strong>。</p>
+<p>我们说的重码是什么意思？以拼音输入法为例，当我输入“a”，至少会出现三个候选：啊、阿、锕。这就是我们理解的重码：同一个编码对应多个候选。一对多，就会有选字的问题。这也是拼音输入法不便的地方。如果能做到“一个编码只对应一个候选”，一一对应，就不存在选字的问题，这是许多形码努力的目标。据我所知，目前还没有形码做到“无重码”。但是，这是因为存在“重码的绝对几率”吗？当然不是。6763个汉字，只要有6763个互不相同的编码与之一一对应，就可以做到<strong>无重码</strong>。别说四码方案，就是三码都够了。</p>
+<p>“占用理论”所说的<strong>重码</strong>，其实是“多个编码对应同一个候选”，比如郑码里，打“m”可以出“我”字，打“mdhm”也可以出“我”字。一个是简码，一个是全码。有些字还有容错码。但这些都不是问题。虽说是“多对一”，但多种编码中的任意一个都可以得到唯一、确定的输入结果，这有什么问题呢？</p>
+<p>打个比方。中国的手机号码是11位，应该是全世界最多的了吧，因为我们人多。11位数字，理论上能编出一千亿个不同号码，足够十几亿人使用。岂止够，根本绰绰有余。好多人都不止一个号，恨不得手机能四卡四待。有问题吗？没有。如果一个人有四个号码，ABCD，意思是，打A号码能打到他，打B号码也能找到他，打C、D都能找到他。这不是“重号”。虽然他有四个号码，但任意一个都能找到他（他接不接是另一回事了），一点问题没有。</p>
+<p>有问题的是这样的情形：几个人<strong>共用</strong>同一个号码。不是你自己家人共用哦，是素不相识的张三和李四共用。也就是说，如果你打张三的电话，是不能直接找到张三的哦，得有个接线小姐，告诉你“找张三先生，请按1；找李四先生，请按2”。不然，你就只能碰运气。那不是全乱套了吗？</p>
+<p>这种乱套，出现在电话号码上是灾难，但在拼音输入法上却是常态。你打“he”，那你是想说“何”，还是“河”，还是“喝”，还是“褐”？1234选一选吧。打字如此，打词也一样，谁叫汉语也就那么几个音节呢？然而拿起来就用啊，简单，而且智能化后，聊天也是绰绰有余了。</p>
+<p>不想老选字，那就选形码咯。但形码也没做到“完全无重码”，是因为形码一般做的都是有理码，要有规则；如果是无理码，其实早做到了，区位码、unicode都是，但是谁又能记住无理码呢？Unicode 倒是会给同一个字的不同字形分配不同的编码，比如“兑”和“兌”，你看起来可能是一样，但是 unicode 认为它们不同。简体的“说”和繁体的“說”，意思一样，但也不会是一样的编码。这些都是同一个字对应多个编码，也都没有问题。</p>
+<p>至于是不是存在一套规则，按它编码，不但6763汉字无重码，而且十几万汉字的全字集都无重码，那我不知道。可以肯定的是，空间肯定是够，在我的码表里，除了单字，还有一堆长短不一的词组，目前只有三十几万行，只用了四码空间的三分之二。有些编码上挤了十几个字，有些编码根本还空着，你们匀一匀多好啊！</p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/06/18/new-md/" data-toggle="tooltip" data-placement="top" title="new.md">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/05/20/郑码二简二重/" data-toggle="tooltip" data-placement="top" title="郑码二简二重">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "Benjamin";
+    var disqus_identifier = "https://github.com/bisolate/2017/05/22/重码的绝对几率？/";
+    var disqus_url = "https://github.com/bisolate/2017/05/22/重码的绝对几率？/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    
+
+
+<!-- Image to hack wechat -->
+<img src="https://github.com/bisolate/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
