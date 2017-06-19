@@ -13,11 +13,11 @@
 
     <title>
         
-          重码的绝对几率？ - Aerobase | A Blog For Gibberish
+          重装后如何重新部署 HEXO - Aerobase | A Blog For Gibberish
         
     </title>
 
-    <link rel="canonical" href="https://github.com/bisolate/2017/05/22/重码的绝对几率？/">
+    <link rel="canonical" href="https://github.com/bisolate/2017/06/18/重装后如何重新部署HEXO/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -165,12 +165,18 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                        
+                          <a class="tag" href="/tags/#Git" title="Git">Git</a>
+                        
+                          <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+                        
                     </div>
-                    <h1>重码的绝对几率？</h1>
+                    <h1>重装后如何重新部署 HEXO</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Benjamin Benjamin on
-                        May 22, 2017
+                        Jun 18, 2017
                     </span>
                 </div>
             </div>
@@ -189,19 +195,52 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>徐码作者徐国银在他的帮助文档里特地写了一小节《重码的绝对几率》，其中提到一个所谓的“空间占用理论”，他是这么说的：</p>
+                <p>更新到 Win 10 的 16215 版之后，系统开始各种抽风，显卡崩了似的不工作，分辨率拉到 1024*768 变成大胖脸，每天 N 次 ctf 报错，Shadowsock 经常莫名丢配置，所有蓝牙音箱也从此连不上了。无计可施，只有出终极大招——重装系统。不知为何，重装的三个选项中，能保留文件的两个都灰的不可用，只能彻底重来。也好，从零开始，问题也解决得再彻底。</p>
+<p>但是重装也往往带来意想不到的新问题。比如我自制的输入法居然不可用了，最后重新生成一次才算正常。最吓人的是，我的这个博客也一度罢工了，一副要跟我断绝联系的架势。我之前是看别人的攻略才成功部署的这个博客，中间其实也重来过一次，我以为按着攻略重来一次，也就能照旧使用了，没想到这个没有成功。可能是时隔太久，有些关键步骤我给忘了。所以，这次我吸取教训，简单地把过程写一遍吧。</p>
+<hr>
+<p><strong>重装之前，千万要先备份博客文件夹！</strong></p>
+<p>重装之后，<strong>第一步</strong>是先把两个关键的环境装好：</p>
+<ol>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a></li>
+<li><a href="https://npm.taobao.org/mirrors/git-for-windows/2.12.0.windows.1/Git-2.12.0-64-bit.exe" target="_blank" rel="external">Git</a></li>
+</ol>
+<p><strong>第二</strong>，安装 Hexo：从开始菜单中找到“Git Bash”，先设置两个重要参数：</p>
 <blockquote>
-<p>最为常见的是以26个字母键、码位数为4的输入法…其编码空间总量为：456976位（26的4次方），而编码对象是6763个国标汉字（不加入词组），在这种条件下，所编出的输入法，其编码空间占用的情况是：456976÷6763=67.57，也就是：6763个字占用了约六十八分之一的编码空间。此时，每输入1个汉字，其重码的发生几率为：67.57分之1（456976除以(6763-1)=67.58），或者说每输入67.58个汉字后，就会产生一对重码，这样累计，输完6763个汉字，会产生6763乘以1/67.58=100.1对重码。从这个原理上来说，以26个字母键、码位数为4编码的输入法，其重码发生的几率所产生的重码为100对。</p>
+<p>$ git config –global user.name “John Doe”<br>$ git config –global user.email johndoe@example.com</p>
 </blockquote>
-<p>这个理论可能不是徐的发明，我在别处也见过，而且不止一次。奇怪的是居然有人相信这个理论：近46万的编码空间，居然容不下区区6763个汉字，<strong>“至少”</strong>产生100对重码？</p>
-<p>其实，这个理论搞错了一个概念：<strong>“重码”</strong>。</p>
-<p>我们说的重码是什么意思？以拼音输入法为例，当我输入“a”，至少会出现三个候选：啊、阿、锕。这就是我们理解的重码：同一个编码对应多个候选。一对多，就会有选字的问题。这也是拼音输入法不便的地方。如果能做到“一个编码只对应一个候选”，一一对应，就不存在选字的问题，这是许多形码努力的目标。据我所知，目前还没有形码做到“无重码”。但是，这是因为存在“重码的绝对几率”吗？当然不是。6763个汉字，只要有6763个互不相同的编码与之一一对应，就可以做到<strong>无重码</strong>。别说四码方案，就是三码都够了。</p>
-<p>“占用理论”所说的<strong>重码</strong>，其实是“多个编码对应同一个候选”，比如郑码里，打“m”可以出“我”字，打“mdhm”也可以出“我”字。一个是简码，一个是全码。有些字还有容错码。但这些都不是问题。虽说是“多对一”，但多种编码中的任意一个都可以得到唯一、确定的输入结果，这有什么问题呢？</p>
-<p>打个比方。中国的手机号码是11位，应该是全世界最多的了吧，因为我们人多。11位数字，理论上能编出一千亿个不同号码，足够十几亿人使用。岂止够，根本绰绰有余。好多人都不止一个号，恨不得手机能四卡四待。有问题吗？没有。如果一个人有四个号码，ABCD，意思是，打A号码能打到他，打B号码也能找到他，打C、D都能找到他。这不是“重号”。虽然他有四个号码，但任意一个都能找到他（他接不接是另一回事了），一点问题没有。</p>
-<p>有问题的是这样的情形：几个人<strong>共用</strong>同一个号码。不是你自己家人共用哦，是素不相识的张三和李四共用。也就是说，如果你打张三的电话，是不能直接找到张三的哦，得有个接线小姐，告诉你“找张三先生，请按1；找李四先生，请按2”。不然，你就只能碰运气。那不是全乱套了吗？</p>
-<p>这种乱套，出现在电话号码上是灾难，但在拼音输入法上却是常态。你打“he”，那你是想说“何”，还是“河”，还是“喝”，还是“褐”？1234选一选吧。打字如此，打词也一样，谁叫汉语也就那么几个音节呢？然而拿起来就用啊，简单，而且智能化后，聊天也是绰绰有余了。</p>
-<p>不想老选字，那就选形码咯。但形码也没做到“完全无重码”，是因为形码一般做的都是有理码，要有规则；如果是无理码，其实早做到了，区位码、unicode都是，但是谁又能记住无理码呢？Unicode 倒是会给同一个字的不同字形分配不同的编码，比如“兑”和“兌”，你看起来可能是一样，但是 unicode 认为它们不同。简体的“说”和繁体的“說”，意思一样，但也不会是一样的编码。这些都是同一个字对应多个编码，也都没有问题。</p>
-<p>至于是不是存在一套规则，按它编码，不但6763汉字无重码，而且十几万汉字的全字集都无重码，那我不知道。可以肯定的是，空间肯定是够，在我的码表里，除了单字，还有一堆长短不一的词组，目前只有三十几万行，只用了四码空间的三分之二。有些编码上挤了十几个字，有些编码根本还空着，你们匀一匀多好啊！</p>
+<p>这俩是对应 GitHub 的账户，填错了或忘了设置，就会出现“Please tell me who you are.”之类的报错。如果记忆模糊，可以去看原博客文件夹下的“_config.yml”，看原来怎么写。登记过多个 email 的时候，尤其容易弄错。</p>
+<p><strong>第三</strong>，新建个文件夹，比如 blog，然后在空白处右键“Git Bash Here”，初始化博客：</p>
+<blockquote>
+<p>hexo init</p>
+</blockquote>
+<p>似乎直接在原文件夹下 init 会报错，所以新建一个，后面要 deploy 的时候把原文件夹下的文件一股脑 copy 过来就是了。</p>
+<p><strong>第四</strong>，重新生成 deploy key：</p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “Github的注册邮箱地址”</p>
+</blockquote>
+<p>一路 enter，万一生成过一次，在问要不要 overwrite 的时候选“y”，最终得到这个：</p>
+<blockquote>
+<p>Your public key has been saved in /c/Users/user/.ssh/id_rsa.pub.</p>
+</blockquote>
+<p>找到这个 id_rsa.pub，用记事本打开它，复制全部内容。</p>
+<p><strong>第五</strong>，网页登陆 GitHub，找到*.github.io项目的“Settings/Deploy keys”，然后“Add deploy key”，Title随意，Key 的内容是刚才复制的内容，记得勾选“Allow write access”，不然后面会遇到权限问题。</p>
+<p><strong>最后</strong>，把原文件夹的文件全部复制到新文件夹，然后就可以正常发文了。</p>
+<hr>
+<p>常用 Hexo 命令：</p>
+<ul>
+<li>清除缓存：hexo clean</li>
+<li>新建文章：hexo n “博文名”</li>
+<li>生成文件：hexo g</li>
+<li>部署博客：hexo d</li>
+</ul>
+<p>通常“吃个蛋”就足够了：</p>
+<blockquote>
+<p>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</p>
+</blockquote>
+<p>遇到“error deployer not found:github”的时候，可以执行：</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save</p>
+</blockquote>
 
 
                 <hr>
@@ -210,13 +249,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/06/18/重装后如何重新部署HEXO/" data-toggle="tooltip" data-placement="top" title="重装后如何重新部署 HEXO">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/05/20/郑码二简二重/" data-toggle="tooltip" data-placement="top" title="郑码二简二重">Next Post &rarr;</a>
+                            <a href="/2017/05/22/重码的绝对几率？/" data-toggle="tooltip" data-placement="top" title="重码的绝对几率？">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -249,6 +284,12 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                        
+                          <a class="tag" href="/tags/#Git" title="Git">Git</a>
+                        
+                          <a class="tag" href="/tags/#GitHub" title="GitHub">GitHub</a>
+                        
                     </div>
                 </section>
                 
@@ -268,8 +309,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "Benjamin";
-    var disqus_identifier = "https://github.com/bisolate/2017/05/22/重码的绝对几率？/";
-    var disqus_url = "https://github.com/bisolate/2017/05/22/重码的绝对几率？/";
+    var disqus_identifier = "https://github.com/bisolate/2017/06/18/重装后如何重新部署HEXO/";
+    var disqus_url = "https://github.com/bisolate/2017/06/18/重装后如何重新部署HEXO/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
