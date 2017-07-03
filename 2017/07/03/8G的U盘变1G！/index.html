@@ -13,11 +13,11 @@
 
     <title>
         
-          Aerobase | A Blog For Gibberish
+          8G的U盘变1G！ - Aerobase | A Blog For Gibberish
         
     </title>
 
-    <link rel="canonical" href="https://github.com/bisolate/tags/Hexo/">
+    <link rel="canonical" href="https://github.com/bisolate/2017/07/03/8G的U盘变1G！/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -147,7 +147,177 @@
 
 
     <!-- Main Content -->
-    <!-- Default Archive layout, we use archives instead. -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://github.com/bisolate/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#系统" title="系统">系统</a>
+                        
+                          <a class="tag" href="/tags/#U盘" title="U盘">U盘</a>
+                        
+                    </div>
+                    <h1>8G的U盘变1G！</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Benjamin Benjamin on
+                        Jul 03, 2017
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>听说U盘会缩水，没想到缩这么厉害。我有个U盘，8G的，许久没用，一插上就说要先格式化才能用。格就格嘛，反正也没什么重要的东西，要命的是，格式化的界面，赫然显示容量只有1G！</p>
+<p>当然这事没法找商家，因为一来是送的，二来时间也很久了，就算是买的也过保了，三来，我之前用过，并没有缩水这么严重啊。</p>
+<p>好在不是我一个人遇到这个问题，所以一搜就搜到了，是因为我之前拿它做过启动盘。打开“磁盘管理”一看，一个盘变成三个盘：1G，12M，6G。因为中间有这个12M的东西，我把另俩删除也没用，它们合不到一块儿。只能借助 Diskpart 了。</p>
+<ul>
+<li>按 Win + R ，输入 cmd 调出“命令提示符”，再输入 diskpart，会弹出另一个窗口，即 diskpart.exe。</li>
+<li>输入 list disk，界面会列出所有的磁盘，序号从0开始。</li>
+<li>找到U盘对应的序号，比如我的是“2”，输入 select disk 2，回车。</li>
+<li>输入 clean，即可将磁盘完全清除。所以<strong>这一步要特别谨慎</strong>，千万要确定确实选的是U盘，别把自己的硬盘清空了。</li>
+<li>“开始”菜单处点右键，找到“磁盘管理”，再找到U盘对应的区域，可以看到刚才的三个盘已经合并成一个盘。右键新建简单卷。Done！</li>
+</ul>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/06/21/Problem-Solving/" data-toggle="tooltip" data-placement="top" title="Patterns of Problem Solving">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#系统" title="系统">系统</a>
+                        
+                          <a class="tag" href="/tags/#U盘" title="U盘">U盘</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "Benjamin";
+    var disqus_identifier = "https://github.com/bisolate/2017/07/03/8G的U盘变1G！/";
+    var disqus_url = "https://github.com/bisolate/2017/07/03/8G的U盘变1G！/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
 
     <!-- Footer -->
     <!-- Footer -->
